@@ -1,0 +1,13 @@
+#pages-list {
+//    margin-left: 5%;
+//    margin-right: 5%;
+//    width: 90%;
+    margin-top: 2%;
+    height: 98%;
+    vertical: true;
+    childs-size: keep;
+
+    .page {
+        border-bottom: 1px;
+    }
+}
