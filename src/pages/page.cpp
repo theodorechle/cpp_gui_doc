@@ -1,6 +1,6 @@
 #include "page.hpp"
 
-Page::Page(gui::elementStyle::manager::ElementsStyleManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *page)> changePage,
+Page::Page(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *page)> changePage,
            const std::string &styleFile, const std::string &pageName)
     : styleManager{styleManager}, textEngine{textEngine}, styleFile{styleFile}, pageName{pageName}, changePage{changePage} {}
 
@@ -23,6 +23,6 @@ void Page::unsetFocus() {
 
 void Page::changePageFocused(Page *newPage) { changePage(newPage); }
 
-gui::element::UIElement *Page::elements() { return rootElement; }
+gui::element::UiElement *Page::elements() { return rootElement; }
 
 const std::string &Page::name() { return pageName; }

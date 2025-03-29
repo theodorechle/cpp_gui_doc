@@ -1,15 +1,15 @@
 #ifndef PAGE_HPP
 #define PAGE_HPP
 
-#include "../../cpp_gui/src/elements/ui_element.hpp"
-#include "../../cpp_gui/src/elements_style/managers/elements_style_manager.hpp"
+#include "../../cpp_gui/src/elements/ui/ui_element.hpp"
+#include "../../cpp_gui/src/style_nodes/style_nodes_manager.hpp"
 
 #include <functional>
 
 class Page {
 protected:
-    gui::element::UIElement *rootElement = nullptr;
-    gui::elementStyle::manager::ElementsStyleManager *styleManager = nullptr;
+    gui::element::UiElement *rootElement = nullptr;
+    gui::elementStyle::manager::StyleNodesManager *styleManager = nullptr;
     TTF_TextEngine *textEngine;
 
 private:
@@ -25,7 +25,7 @@ public:
     /**
      * styleFile must be relative to the 'pages' folder
      */
-    Page(gui::elementStyle::manager::ElementsStyleManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *page)> changePage,
+    Page(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *page)> changePage,
          const std::string &styleFile = "", const std::string &pageName = "");
 
     virtual ~Page();
@@ -40,7 +40,7 @@ public:
 
     void changePageFocused(Page *newPage);
 
-    gui::element::UIElement *elements();
+    gui::element::UiElement *elements();
 
     const std::string &name();
 };

@@ -1,7 +1,7 @@
 #include "page_manager.hpp"
 
 PageManager::PageManager(SDL_Window *window, SDL_Renderer *renderer)
-    : uiManager{new gui::element::manager::UIManager(window, renderer)}, styleManager{new gui::elementStyle::manager::ElementsStyleManager()} {
+    : uiManager{new gui::element::manager::UIManager(window, renderer)}, styleManager{new gui::elementStyle::manager::StyleNodesManager()} {
 
     textEngine = TTF_CreateRendererTextEngine(renderer);
 
@@ -32,13 +32,13 @@ void PageManager::createPageStructure() {
     styleManager->addStyleFile("src/pages/page-structure-style.style");
 
     rootElement = new gui::element::List(styleManager, nullptr, "root-page");
-    uiManager->setElementsTree(rootElement);
+    uiManager->setSubRootElement(rootElement);
 
-    gui::element::UIElement *headerList = new gui::element::Container(styleManager, nullptr, "header-list");
+    gui::element::UiElement *headerList = new gui::element::Container(styleManager, nullptr, "header-list");
     rootElement->addChild(headerList);
 
     std::vector<std::string> pagesClasses = std::vector<std::string>{"back-button"};
-    gui::element::UIElement *button = new gui::element::Button(
+    gui::element::UiElement *button = new gui::element::Button(
         [this]() { askChangingPage(new IndexPage(styleManager, textEngine, std::bind(&PageManager::askChangingPage, this, std::placeholders::_1))); },
         styleManager, &pagesClasses, "");
     headerList->addChild(button);
@@ -60,12 +60,13 @@ void PageManager::changePage(Page *newPage) {
     currentPage = newPage;
     if (currentPage != nullptr) {
         currentPage->setFocus();
-        gui::element::UIElement *newPage = currentPage->elements();
+        gui::element::UiElement *newPage = currentPage->elements();
         currentPageElement->addChild(newPage);
 
         pageNameLabel->setText(currentPage->name());
     }
-    uiManager->resetEvents();
+    // FIXME
+    // uiManager->resetEvents();
 }
 
 void PageManager::update() {

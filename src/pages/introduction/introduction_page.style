@@ -6,3 +6,8 @@
     childs-size: biggest;
     .page {}
 }
+
+label {
+    border: 1px;
+    text-wrap: wrapped;
+}

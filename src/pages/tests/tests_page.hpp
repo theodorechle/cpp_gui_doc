@@ -6,7 +6,7 @@
 class TestsPage : public Page {
 
 public:
-    TestsPage(gui::elementStyle::manager::ElementsStyleManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage);
+    TestsPage(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage);
 
     void createPage() override;
 };

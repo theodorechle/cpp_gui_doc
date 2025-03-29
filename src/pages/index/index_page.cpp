@@ -1,7 +1,7 @@
 #include "index_page.hpp"
-#include "../../../cpp_gui/src/elements/button.hpp"
-#include "../../../cpp_gui/src/elements/label.hpp"
-#include "../../../cpp_gui/src/elements/list.hpp"
+#include "../../../cpp_gui/src/elements/ui/button.hpp"
+#include "../../../cpp_gui/src/elements/ui/label.hpp"
+#include "../../../cpp_gui/src/elements/ui/list.hpp"
 
 #include "../elements/elements_page.hpp"
 #include "../introduction/introduction_page.hpp"
@@ -10,20 +10,23 @@
 
 #include <vector>
 
-IndexPage::IndexPage(gui::elementStyle::manager::ElementsStyleManager *styleManager, TTF_TextEngine *textEngine,
-                     std::function<void(Page *)> changePage)
+IndexPage::IndexPage(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage)
     : Page(styleManager, textEngine, changePage, "index", "Index") {
-    pages = {new Introduction(styleManager, textEngine, changePage), new ElementsPage(styleManager, textEngine, changePage),
-             new StylePage(styleManager, textEngine, changePage), new TestsPage(styleManager, textEngine, changePage)};
+    pages = {
+        new Introduction(styleManager, textEngine, changePage),
+        new ElementsPage(styleManager, textEngine, changePage),
+        new StylePage(styleManager, textEngine, changePage),
+        new TestsPage(styleManager, textEngine, changePage)
+    };
 }
 
 void IndexPage::createPage() {
-    gui::element::UIElement *pagesList = new gui::element::List(styleManager, nullptr, "pages-list");
+    gui::element::UiElement *pagesList = new gui::element::List(styleManager, nullptr, "pages-list");
     rootElement = pagesList;
 
     std::vector<std::string> pagesClasses = std::vector<std::string>{"page"};
 
-    gui::element::UIElement *button;
+    gui::element::UiElement *button;
 
     for (Page *page : pages) {
         if (page == this) continue;
