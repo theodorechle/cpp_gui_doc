@@ -32,6 +32,6 @@ void IndexPage::createPage() {
         if (page == this) continue;
         button = new gui::element::Button([this, page]() { changePageFocused(page); }, styleManager, &pagesClasses, "");
         rootElement->addChild(button);
-        button->addChild(new gui::element::Label(page->name(), styleManager, {}, "", textEngine));
+        button->addChild(new gui::element::Label(page->name(), styleManager, nullptr, "", textEngine));
     }
 }

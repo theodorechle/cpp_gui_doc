@@ -34,5 +34,5 @@ void Introduction::createPage() {
         "erat. Aliquam lorem ex, tempus ut nisi in, condimentum vestibulum nibh. Duis sit amet eleifend magna. Aenean sed dolor est. Pellentesque "
         "dignissim eget eros non feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus "
         "venenatis, massa vitae consectetur accumsan, ante erat porta est, sed aliquet nisi diam et eros.",
-        styleManager, {}, "", textEngine));
+        styleManager, nullptr, "", textEngine));
 }

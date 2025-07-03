@@ -1,4 +1,5 @@
 #include "page_manager.hpp"
+#include "../introduction/introduction_page.hpp"
 
 PageManager::PageManager(SDL_Window *window, SDL_Renderer *renderer)
     : uiManager{new gui::element::manager::UIManager(window, renderer)}, styleManager{new gui::elementStyle::manager::StyleNodesManager()} {
@@ -34,15 +35,15 @@ void PageManager::createPageStructure() {
     rootElement = new gui::element::List(styleManager, nullptr, "root-page");
     uiManager->setSubRootElement(rootElement);
 
-    gui::element::UiElement *headerList = new gui::element::Container(styleManager, nullptr, "header-list");
+    gui::element::UiElement *headerList = new gui::element::List(styleManager, nullptr, "header-list");
     rootElement->addChild(headerList);
 
     std::vector<std::string> pagesClasses = std::vector<std::string>{"back-button"};
     gui::element::UiElement *button = new gui::element::Button(
-        [this]() { askChangingPage(new IndexPage(styleManager, textEngine, std::bind(&PageManager::askChangingPage, this, std::placeholders::_1))); },
-        styleManager, &pagesClasses, "");
+        [this]() { askChangingPage(new IndexPage(styleManager, textEngine, std::bind(&PageManager::askChangingPage, this, std::placeholders::_1)));
+        }, styleManager, &pagesClasses, "");
     headerList->addChild(button);
-    button->addChild(new gui::element::Label("Back to index", styleManager, {}, "", textEngine));
+    button->addChild(new gui::element::Label("Back to index", styleManager, nullptr, "", textEngine));
 
     pageNameLabel = new gui::element::Label("", styleManager, nullptr, "page-name", textEngine);
     headerList->addChild(pageNameLabel);
@@ -51,7 +52,10 @@ void PageManager::createPageStructure() {
     rootElement->addChild(currentPageElement);
 }
 
-void PageManager::askChangingPage(Page *newPage) { askedNewPage = newPage; }
+void PageManager::askChangingPage(Page *newPage) {
+    SDL_Log("ask changing page\n");
+    askedNewPage = newPage;
+}
 
 void PageManager::changePage(Page *newPage) {
     currentPageElement->removeChilds();
@@ -60,13 +64,13 @@ void PageManager::changePage(Page *newPage) {
     currentPage = newPage;
     if (currentPage != nullptr) {
         currentPage->setFocus();
-        gui::element::UiElement *newPage = currentPage->elements();
-        currentPageElement->addChild(newPage);
+        gui::element::UiElement *newPageElement = currentPage->elements();
+        currentPageElement->addChild(newPageElement);
 
         pageNameLabel->setText(currentPage->name());
     }
     // FIXME
-    // uiManager->resetEvents();
+    uiManager->resetEvents();
 }
 
 void PageManager::update() {

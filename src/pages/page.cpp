@@ -21,7 +21,7 @@ void Page::unsetFocus() {
     styleManager->removeStyle(fileNumber);
 }
 
-void Page::changePageFocused(Page *newPage) { changePage(newPage); }
+void Page::changePageFocused(Page *newPage) { std::cerr << "coucou\n"; changePage(newPage); }
 
 gui::element::UiElement *Page::elements() { return rootElement; }
 
