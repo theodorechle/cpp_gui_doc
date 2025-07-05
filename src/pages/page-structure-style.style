@@ -5,24 +5,24 @@
     vertical: true;
 
     #header-list {
-        // border-bottom: 1px;
+        border-bottom: 1px;
         childs-size: keep;
         // height: 40px;
 
-        > * {
+        >* {
             vertical-alignment: centered;
-            border: 1px;
             // height: 100px;
         }
 
-        #back-button {
-            width: 20px;
+        .back-button {
+            // width: 30px;
+            border-right: 1px;
         }
 
         #page-name {
-            padding-left: 30px; // FIXME
-            // padding-right: 50px; // FIXME
-            horizontal-alignment: centered;
+            padding-left: 150px;
+            padding-right: 250px;
+            // horizontal-alignment: centered;
         }
     }
 
@@ -36,7 +36,9 @@ label {
     font-name: "Roboto-VariableFont_wdth,wght.ttf";
     font-size: 50px;
     font-weight: 12px;
+}
 
+button {
     &:hovered {
         background-color: #0000ff;
     }
