@@ -11,7 +11,14 @@ Introduction::Introduction(gui::elementStyle::manager::StyleNodesManager *styleM
 void Introduction::createPage() {
     gui::element::UiElement *pagesList = new gui::element::List(styleManager, nullptr, "pages-list");
     rootElement = pagesList;
+    // very strange behavior
 
+    pagesList->addChild(new gui::element::Label(
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus nulla, porttitor id eleifend a, vehicula at odio. Duis et dui a sem "
+        "suscipit tristique sed id neque. Proin sit amet tellus sed mi tempor mattis at ut arcu. Nunc aliquam dictum venenatis. Phasellus aliquam "
+        "dictum dui fringilla egestas. Mauris eu pharetra arcu. Praesent massa est, tincidunt quis elementum non, dignissim eget lectus. Curabitur "
+        "varius dolor eget nulla fermentum dapibus",
+        styleManager, nullptr, "", textEngine));
     pagesList->addChild(new gui::element::Label(
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus nulla, porttitor id eleifend a, vehicula at odio. Duis et dui a sem "
         "suscipit tristique sed id neque. Proin sit amet tellus sed mi tempor mattis at ut arcu. Nunc aliquam dictum venenatis. Phasellus aliquam "
@@ -33,6 +40,6 @@ void Introduction::createPage() {
         "Sed sed dictum neque. Duis fermentum augue vel lectus venenatis dictum. Praesent felis turpis, vestibulum eget augue in, cursus feugiat "
         "erat. Aliquam lorem ex, tempus ut nisi in, condimentum vestibulum nibh. Duis sit amet eleifend magna. Aenean sed dolor est. Pellentesque "
         "dignissim eget eros non feugiat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vivamus "
-        "venenatis, massa vitae consectetur accumsan, ante erat porta est, sed aliquet nisi diam et eros.",
+        "venenatis, massa vitae consectetur accumsan, ante erat porta est, sed aliquet nisi diam et eros.", // exceeding 2473 chars causes text not to be displayed
         styleManager, nullptr, "", textEngine));
 }

@@ -11,6 +11,7 @@
 }
 
 label {
-    border: 1px;
-    text-wrap: line-break;
+    // border: 1px;
+    width: 200px;
+    text-wrap: wrapped;
 }
