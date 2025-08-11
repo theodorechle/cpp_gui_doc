@@ -1,16 +1,18 @@
-#pages-list {
-//    padding-left: 5%;
-//    padding-right: 5%;
-//    width: 100%;
-//    height: 100%;
-//    childs-size: biggest;
-//    .page {}
-    margin-top: 2px;
-    height: 98px;
-    vertical: true;
+#page-content {
+    #pages-list {
+        //    padding-left: 5%;
+        //    padding-right: 5%;
+        //    width: 100%;
+        //    height: 100%;
+        //    childs-size: biggest;
+        //    .page {}
+        margin-top: 2px;
+        //height: 98px;
+        vertical: true;
+    }
 }
 
-label {
+#page-content label {
     // border: 1px;
     width: 200px;
     text-wrap: wrapped;
