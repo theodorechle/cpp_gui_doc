@@ -13,20 +13,24 @@ void Introduction::createPage() {
     rootElement = pagesList;
     // very strange behavior
 
-    pagesList->addChild(new gui::element::Label(
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus nulla, porttitor id eleifend a, vehicula at odio. Duis et dui a sem "
-        "suscipit tristique sed id neque. Proin sit amet tellus sed mi tempor mattis at ut arcu. Nunc aliquam dictum venenatis. Phasellus aliquam "
-        "dictum dui fringilla egestas. Mauris eu pharetra arcu. Praesent massa est, tincidunt quis elementum non, dignissim eget lectus. Curabitur "
-        "varius dolor eget nulla fermentum dapibus",
-        styleManager, nullptr, "", textEngine));
-    pagesList->addChild(new gui::element::Label(
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus nulla, porttitor id eleifend a, vehicula at odio. Duis et dui a sem "
-        "suscipit tristique sed id neque. Proin sit amet tellus sed mi tempor mattis at ut arcu. Nunc aliquam dictum venenatis. Phasellus aliquam "
-        "dictum dui fringilla egestas. Mauris eu pharetra arcu. Praesent massa est, tincidunt quis elementum non, dignissim eget lectus. Curabitur "
-        "varius dolor eget nulla fermentum dapibus."
-        "Nullam eu felis id justo posuere porttitor in non arcu. Integer gravida aliquam justo, at laoreet augue scelerisque quis. Mauris eget leo "
-        "velit. Vestibulum purus libero, imperdiet sed ornare in, ultricies id turpis. Vivamus vel commodo lorem. In porttitor mauris posuere "
-        "posuere varius. Phasellus l", // exceeding 2473 chars causes text not to be displayed
-        styleManager, nullptr, "", textEngine));
-    pagesList->addChild(new gui::element::Button(nullptr, styleManager));
+    // pagesList->addChild(new gui::element::Label(
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus nulla, porttitor id eleifend a, vehicula at odio. Duis et dui a sem "
+    //     "suscipit tristique sed id neque. Proin sit amet tellus sed mi tempor mattis at ut arcu. Nunc aliquam dictum venenatis. Phasellus aliquam "
+    //     "dictum dui fringilla egestas. Mauris eu pharetra arcu. Praesent massa est, tincidunt quis elementum non, dignissim eget lectus. Curabitur "
+    //     "varius dolor eget nulla fermentum dapibus",
+    //     styleManager, nullptr, "", textEngine));
+    // pagesList->addChild(new gui::element::Label(
+    //     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed metus nulla, porttitor id eleifend a, vehicula at odio. Duis et dui a sem "
+    //     "suscipit tristique sed id neque. Proin sit amet tellus sed mi tempor mattis at ut arcu. Nunc aliquam dictum venenatis. Phasellus aliquam "
+    //     "dictum dui fringilla egestas. Mauris eu pharetra arcu. Praesent massa est, tincidunt quis elementum non, dignissim eget lectus. Curabitur "
+    //     "varius dolor eget nulla fermentum dapibus."
+    //     "Nullam eu felis id justo posuere porttitor in non arcu. Integer gravida aliquam justo, at laoreet augue scelerisque quis. Mauris eget leo "
+    //     "velit. Vestibulum purus libero, imperdiet sed ornare in, ultricies id turpis. Vivamus vel commodo lorem. In porttitor mauris posuere "
+    //     "posuere varius. Phasellus l", // exceeding 2473 chars causes text not to be displayed
+    //     styleManager, nullptr, "", textEngine));
+    
+    pagesList->addChild(new gui::element::List(styleManager, nullptr, "myList"));
+    pagesList->child()->addChild(new gui::element::Button(nullptr, styleManager));
+    pagesList->child()->child()->addChild(new gui::element::Button(nullptr, styleManager));
+    pagesList->child()->child()->child()->addChild(new gui::element::Label("myLabel", styleManager, nullptr, "", textEngine));
 }

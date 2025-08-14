@@ -13,8 +13,13 @@
 #include "pages/manager/page_manager.hpp"
 
 #define SDL_MAIN_USE_CALLBACKS 1 /* use the callbacks instead of main() */
-#include <SDL3/SDL.h>
+#include <SDL3/SDL_error.h>
+#include <SDL3/SDL_init.h>
+#include <SDL3/SDL_log.h>
 #include <SDL3/SDL_main.h>
+#include <SDL3/SDL_render.h>
+#include <SDL3/SDL_video.h>
+
 #include <SDL3_ttf/SDL_ttf.h>
 
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {

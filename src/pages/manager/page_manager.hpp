@@ -5,14 +5,16 @@
 #include "../../../cpp_gui/src/elements/ui/container.hpp"
 #include "../../../cpp_gui/src/elements/ui/label.hpp"
 #include "../../../cpp_gui/src/elements/ui/list.hpp"
-#include "../../../cpp_gui/src/elements/ui/ui_manager.hpp"
 #include "../../../cpp_gui/src/elements/ui/ui_element.hpp"
+#include "../../../cpp_gui/src/elements/ui/ui_manager.hpp"
 #include "../../../cpp_gui/src/style_nodes/style_nodes_manager.hpp"
 
 #include "../index/index_page.hpp"
 #include "../page.hpp"
 
-#include <SDL3/SDL.h>
+#include <SDL3/SDL_events.h>
+#include <SDL3/SDL_render.h>
+#include <SDL3/SDL_video.h>
 #include <functional>
 #include <map>
 
@@ -27,8 +29,6 @@ class PageManager {
     Page *askedNewPage = nullptr;
 
     gui::element::Label *pageNameLabel = nullptr;
-
-    Page *findPage(const std::string &pageName);
 
     void createPageStructure();
 

@@ -26,3 +26,14 @@ button {
         border-color: #ff0000;
     }
 }
+
+#myList>button label {
+    background-color: #ff0000;
+    &:hovered {
+        background-color: #0000ff;
+    }
+}
+
+#myList>* label {
+    text-color: #00ff00;
+}
