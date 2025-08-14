@@ -28,4 +28,5 @@ void Introduction::createPage() {
         "velit. Vestibulum purus libero, imperdiet sed ornare in, ultricies id turpis. Vivamus vel commodo lorem. In porttitor mauris posuere "
         "posuere varius. Phasellus l", // exceeding 2473 chars causes text not to be displayed
         styleManager, nullptr, "", textEngine));
+    pagesList->addChild(new gui::element::Button(nullptr, styleManager));
 }

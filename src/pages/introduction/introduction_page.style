@@ -17,3 +17,12 @@
     width: 200px;
     text-wrap: wrapped;
 }
+
+button {
+    &:clicked {
+        padding: 100px;
+        border: 2px;
+        text-color: #ff0000;
+        border-color: #ff0000;
+    }
+}
