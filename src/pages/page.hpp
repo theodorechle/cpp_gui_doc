@@ -20,13 +20,14 @@ private:
     int fileNumber = -1;
     bool focus = false;
     std::function<void(Page *page)> changePage;
+    std::string middlePath;
 
 public:
     /**
      * styleFile must be relative to the 'pages' folder
      */
     Page(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *page)> changePage,
-         const std::string &styleFile = "", const std::string &pageName = "");
+         const std::string &styleFile = "", const std::string &pageName = "", const std::string &middlePath = "");
 
     virtual ~Page();
 

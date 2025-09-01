@@ -10,9 +10,8 @@ MAIN=bin/cpp_gui_doc
 SRC_MAIN=$(SRC_DIR)/main.cpp
 
 # Subdirectories
-PAGES=pages
 SUBDIRS=pages pages/manager app_utils
-SRC_SUBDIRS=$(foreach dir, $(PAGES)/*, $(wildcard $(SRC_DIR)/$(dir)/*.cpp)) $(foreach dir, $(SUBDIRS), $(wildcard $(SRC_DIR)/$(dir)/*.cpp))
+SRC_SUBDIRS=$(foreach dir, pages/*, $(wildcard $(SRC_DIR)/$(dir)/*.cpp)) $(foreach dir, pages/elements/*, $(wildcard $(SRC_DIR)/$(dir)/*.cpp)) $(foreach dir, $(SUBDIRS), $(wildcard $(SRC_DIR)/$(dir)/*.cpp))
 OBJ_SUBDIRS=$(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_SUBDIRS))
 
 .PHONY: all clean

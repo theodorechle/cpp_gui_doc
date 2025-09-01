@@ -69,7 +69,6 @@ void PageManager::changePage(Page *newPage) {
 
         pageNameLabel->setText(currentPage->name());
     }
-    // FIXME
     uiManager->resetEvents();
 }
 

@@ -1,15 +1,15 @@
 #include "page.hpp"
 
 Page::Page(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *page)> changePage,
-           const std::string &styleFile, const std::string &pageName)
-    : styleManager{styleManager}, textEngine{textEngine}, styleFile{styleFile}, pageName{pageName}, changePage{changePage} {}
+           const std::string &styleFile, const std::string &pageName, const std::string &middlePath)
+    : styleManager{styleManager}, textEngine{textEngine}, styleFile{styleFile}, pageName{pageName}, changePage{changePage}, middlePath{middlePath} {}
 
 Page::~Page() { delete rootElement; }
 
 void Page::setFocus() {
     if (focus) return;
     focus = true;
-    fileNumber = styleManager->addStyleFile(PAGE_PATH + styleFile + "/" + styleFile + "_page.style");
+    fileNumber = styleManager->addStyleFile(PAGE_PATH + middlePath + styleFile + "/" + styleFile + "_page.style");
     createPage();
 }
 

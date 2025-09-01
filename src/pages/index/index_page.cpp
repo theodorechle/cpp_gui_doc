@@ -1,14 +1,4 @@
 #include "index_page.hpp"
-#include "../../../cpp_gui/src/elements/ui/button.hpp"
-#include "../../../cpp_gui/src/elements/ui/label.hpp"
-#include "../../../cpp_gui/src/elements/ui/list.hpp"
-
-#include "../elements/elements_page.hpp"
-#include "../introduction/introduction_page.hpp"
-#include "../style/style_page.hpp"
-#include "../tests/tests_page.hpp"
-
-#include <vector>
 
 IndexPage::IndexPage(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage)
     : Page(styleManager, textEngine, changePage, "index", "Index") {
@@ -29,9 +19,8 @@ void IndexPage::createPage() {
     gui::element::UiElement *button;
 
     for (Page *page : pages) {
-        if (page == this) continue;
         button = new gui::element::Button([this, page]() { changePageFocused(page); }, styleManager, &pagesClasses, "");
-        rootElement->addChild(button);
         button->addChild(new gui::element::Label(page->name(), styleManager, nullptr, "", textEngine));
+        rootElement->addChild(button);
     }
 }
