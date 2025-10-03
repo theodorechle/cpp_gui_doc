@@ -24,8 +24,6 @@ PageManager::~PageManager() {
 
 void PageManager::processEvent(const SDL_Event &event) const { uiManager->processEvent(event); }
 
-void PageManager::processMouseEvents() const { uiManager->processMouseEvents(); }
-
 void PageManager::render() const { uiManager->render(); }
 
 void PageManager::createPageStructure() {
@@ -69,7 +67,6 @@ void PageManager::changePage(Page *newPage) {
 
         pageNameLabel->setText(currentPage->name());
     }
-    uiManager->resetEvents();
 }
 
 void PageManager::update() {

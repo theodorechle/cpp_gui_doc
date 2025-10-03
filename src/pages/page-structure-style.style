@@ -33,13 +33,14 @@
 }
 
 label {
-    font-name: "Roboto-VariableFont_wdth,wght.ttf";
+    font-name: "Courgette-Regular.ttf";
     font-size: 50px;
     font-weight: 12px;
 }
 
 button {
     &:hovered {
-        background-color: #0000ff;
+        background-color: #3838bb;
+        text-color: #ffffff;
     }
 }

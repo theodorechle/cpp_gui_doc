@@ -40,7 +40,6 @@ public:
     ~PageManager();
 
     void processEvent(const SDL_Event &event) const;
-    void processMouseEvents() const;
     void render() const;
 
     void update();
