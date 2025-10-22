@@ -1,5 +1,5 @@
-CC=g++
-CFLAGS=-std=c++17 -Wall -g -MMD -MP
+CPP_C=g++
+CPP_FLAGS=-std=c++17 -Wall -g -MMD -MP
 SDL_CMD=`pkg-config sdl3 sdl3-ttf --cflags --libs`
 BIN_DIR=bin
 OBJ_DIR=obj
@@ -16,18 +16,22 @@ OBJ_SUBDIRS=$(patsubst $(SRC_DIR)/%.cpp, $(OBJ_DIR)/%.o, $(SRC_SUBDIRS))
 
 .PHONY: all clean
 
+ifdef DEBUG
+CPP_FLAGS += -DDEBUG
+endif
+
 all: $(MAIN)
 
 $(MAIN): $(OBJ_SUBDIRS) $(SRC_MAIN) $(LIB).a
 	@mkdir -p $(BIN_DIR)
-	$(CC) $(CFLAGS) $^ $(SDL_CMD) -o $@
+	$(CPP_C) $(CPP_FLAGS) $^ $(SDL_CMD) -o $@
 
 $(LIB).a:
 	$(MAKE) -C cpp_gui -j lib
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CPP_C) $(CPP_FLAGS) -c $< -o $@
 
 # Clean all generated files
 clean:

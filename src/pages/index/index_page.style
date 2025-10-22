@@ -3,10 +3,11 @@
 //    margin-right: 5%;
 //    width: 90%;
     margin-top: 2px;
-    height: 98px;
+    height: 500px;
     vertical: true;
 
     .page {
         border-bottom: 1px;
     }
 }
+
