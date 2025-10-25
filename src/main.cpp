@@ -6,9 +6,9 @@
 #include "../cpp_gui/src/elements/ui/list.hpp"
 #include "../cpp_gui/src/elements/ui/ui_element.hpp"
 #include "../cpp_gui/src/elements/ui/ui_manager.hpp"
-#include "../cpp_gui/src/style/style_deserializer.hpp"
-#include "../cpp_gui/src/style_nodes/style_node.hpp"
-#include "../cpp_gui/src/style_nodes/style_nodes_manager.hpp"
+#include "../cpp_gui/cpp_style/src/style/style_deserializer.hpp"
+#include "../cpp_gui/cpp_style/src/style_nodes/style_node.hpp"
+#include "../cpp_gui/cpp_style/src/style_nodes/style_nodes_manager.hpp"
 #include "app_utils/app_state.hpp"
 #include "pages/manager/page_manager.hpp"
 

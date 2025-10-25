@@ -2,7 +2,7 @@
 #define PAGE_HPP
 
 #include "../../cpp_gui/src/elements/ui/ui_element.hpp"
-#include "../../cpp_gui/src/style_nodes/style_nodes_manager.hpp"
+#include "../../../cpp_style/src/style_nodes/style_nodes_manager.hpp"
 
 #include <functional>
 
