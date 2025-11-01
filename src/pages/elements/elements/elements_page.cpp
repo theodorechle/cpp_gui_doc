@@ -1,6 +1,6 @@
 #include "elements_page.hpp"
 
-ElementsPage::ElementsPage(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine,
+ElementsPage::ElementsPage(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine,
                            std::function<void(Page *)> changePage)
     : Page(styleManager, textEngine, changePage, "elements", "Elements", "elements/") {
     pages = {

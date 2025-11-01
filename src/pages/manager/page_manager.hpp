@@ -24,7 +24,7 @@ class PageManager {
     gui::element::manager::UIManager *uiManager = nullptr;
     gui::element::UiElement *rootElement = nullptr;
     gui::element::UiElement *currentPageElement = nullptr;
-    gui::elementStyle::manager::StyleNodesManager *styleManager = nullptr;
+    style::elementStyle::manager::StyleNodesManager *styleManager = nullptr;
     Page *currentPage = nullptr;
     Page *askedNewPage = nullptr;
 

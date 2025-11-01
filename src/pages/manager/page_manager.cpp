@@ -1,8 +1,10 @@
 #include "page_manager.hpp"
+#include "../../../cpp_gui/src/elements/ui/style_config.hpp"
 #include "../introduction/introduction_page.hpp"
 
 PageManager::PageManager(SDL_Window *window, SDL_Renderer *renderer)
-    : uiManager{new gui::element::manager::UIManager(window, renderer)}, styleManager{new gui::elementStyle::manager::StyleNodesManager()} {
+    : uiManager{new gui::element::manager::UIManager(window, renderer)},
+      styleManager{new style::elementStyle::manager::StyleNodesManager(&guiStyleConfig)} {
 
     textEngine = TTF_CreateRendererTextEngine(renderer);
 
@@ -38,8 +40,8 @@ void PageManager::createPageStructure() {
 
     std::vector<std::string> pagesClasses = std::vector<std::string>{"back-button"};
     gui::element::UiElement *button = new gui::element::Button(
-        [this]() { askChangingPage(new IndexPage(styleManager, textEngine, std::bind(&PageManager::askChangingPage, this, std::placeholders::_1)));
-        }, styleManager, &pagesClasses, "");
+        [this]() { askChangingPage(new IndexPage(styleManager, textEngine, std::bind(&PageManager::askChangingPage, this, std::placeholders::_1))); },
+        styleManager, &pagesClasses, "");
     headerList->addChild(button);
     button->addChild(new gui::element::Label("Back to index", styleManager, nullptr, "", textEngine));
 
@@ -51,7 +53,9 @@ void PageManager::createPageStructure() {
 }
 
 void PageManager::askChangingPage(Page *newPage) {
+#ifdef DEBUG
     SDL_Log("ask changing page\n");
+#endif
     askedNewPage = newPage;
 }
 

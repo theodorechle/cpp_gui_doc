@@ -1,6 +1,6 @@
 #include "index_page.hpp"
 
-IndexPage::IndexPage(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage)
+IndexPage::IndexPage(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage)
     : Page(styleManager, textEngine, changePage, "index", "Index") {
     pages = {
         new Introduction(styleManager, textEngine, changePage),

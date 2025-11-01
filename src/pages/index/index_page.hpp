@@ -17,7 +17,7 @@ class IndexPage : public Page {
     std::list<Page *> pages;
 
 public:
-    IndexPage(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage);
+    IndexPage(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage);
 
     void createPage() override;
 };

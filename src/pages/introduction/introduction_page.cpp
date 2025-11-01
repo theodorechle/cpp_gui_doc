@@ -4,7 +4,7 @@
 #include "../../../cpp_gui/src/elements/ui/list.hpp"
 #include <vector>
 
-Introduction::Introduction(gui::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine,
+Introduction::Introduction(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine,
                            std::function<void(Page *)> changePage)
     : Page(styleManager, textEngine, changePage, "introduction", "Introduction (What is cpp gui?)") {}
 
