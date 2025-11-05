@@ -1,3 +1,4 @@
 [submodule "cpp_gui"]
 	path = cpp_gui
 	url = https://github.com/theodorechle/cpp_gui
+	branch = main
