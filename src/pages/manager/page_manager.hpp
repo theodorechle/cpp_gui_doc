@@ -39,7 +39,7 @@ public:
     PageManager(SDL_Window *window, SDL_Renderer *renderer);
     ~PageManager();
 
-    void processEvent(const SDL_Event &event) const;
+    void processEvent(const SDL_Event *event) const;
     void render() const;
 
     void update();

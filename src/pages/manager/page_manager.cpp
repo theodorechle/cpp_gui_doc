@@ -24,7 +24,7 @@ PageManager::~PageManager() {
     TTF_DestroyRendererTextEngine(textEngine);
 }
 
-void PageManager::processEvent(const SDL_Event &event) const { uiManager->processEvent(event); }
+void PageManager::processEvent(const SDL_Event *event) const { uiManager->processEvent(event); }
 
 void PageManager::render() const { uiManager->render(); }
 

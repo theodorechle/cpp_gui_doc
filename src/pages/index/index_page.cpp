@@ -1,4 +1,5 @@
 #include "index_page.hpp"
+#include "../../../cpp_gui/src/elements/ui/input.hpp"
 
 IndexPage::IndexPage(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage)
     : Page(styleManager, textEngine, changePage, "index", "Index") {
@@ -23,4 +24,6 @@ void IndexPage::createPage() {
         button->addChild(new gui::element::Label(page->name(), styleManager, nullptr, "", textEngine));
         rootElement->addChild(button);
     }
+
+    rootElement->addChild(new gui::element::Input("", "entrez un texte", styleManager, nullptr, "", textEngine));
 }
