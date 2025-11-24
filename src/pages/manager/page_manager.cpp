@@ -2,7 +2,7 @@
 
 PageManager::PageManager(SDL_Window *window, SDL_Renderer *renderer)
     : uiManager{new gui::element::manager::UIManager(window, renderer)},
-      styleManager{new style::elementStyle::manager::StyleNodesManager(style::config::testConfig())} {
+      styleManager{new style::elementStyle::manager::StyleNodesManager(style::config::config())} {
 
     textEngine = TTF_CreateRendererTextEngine(renderer);
 
