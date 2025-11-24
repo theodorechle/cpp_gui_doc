@@ -1,15 +1,16 @@
 #ifndef PAGE_MANAGER_HPP
 #define PAGE_MANAGER_HPP
 
+#include "../../../cpp_gui/cpp_style/src/style_nodes/style_nodes_manager.hpp"
 #include "../../../cpp_gui/src/elements/ui/button.hpp"
 #include "../../../cpp_gui/src/elements/ui/container.hpp"
 #include "../../../cpp_gui/src/elements/ui/label.hpp"
 #include "../../../cpp_gui/src/elements/ui/list.hpp"
+#include "../../../cpp_gui/src/elements/ui/style_config.hpp"
 #include "../../../cpp_gui/src/elements/ui/ui_element.hpp"
 #include "../../../cpp_gui/src/elements/ui/ui_manager.hpp"
-#include "../../../cpp_gui/cpp_style/src/style_nodes/style_nodes_manager.hpp"
-
 #include "../index/index_page.hpp"
+#include "../introduction/introduction_page.hpp"
 #include "../page.hpp"
 
 #include <SDL3/SDL_events.h>

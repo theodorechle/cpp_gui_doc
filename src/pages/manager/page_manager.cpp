@@ -1,10 +1,8 @@
 #include "page_manager.hpp"
-#include "../../../cpp_gui/src/elements/ui/style_config.hpp"
-#include "../introduction/introduction_page.hpp"
 
 PageManager::PageManager(SDL_Window *window, SDL_Renderer *renderer)
     : uiManager{new gui::element::manager::UIManager(window, renderer)},
-      styleManager{new style::elementStyle::manager::StyleNodesManager(&guiStyleConfig)} {
+      styleManager{new style::elementStyle::manager::StyleNodesManager(style::config::testConfig())} {
 
     textEngine = TTF_CreateRendererTextEngine(renderer);
 
