@@ -6,23 +6,18 @@
 
     #header-list {
         border-bottom: 1px;
-        childs-size: keep;
-        // height: 40px;
+        width: 300px;
 
         >* {
             vertical-alignment: centered;
-            // height: 100px;
         }
 
         .back-button {
-            // width: 30px;
             border-right: 1px;
         }
 
         #page-name {
-            padding-left: 150px;
-            padding-right: 250px;
-            // horizontal-alignment: centered;
+            horizontal-alignement: centered;
         }
     }
 
@@ -41,7 +36,6 @@ button {
     &:hovered {
         background-color: #3838bb;
         text-color: #ffffff;
-        // font-size: 50px;
     }
 }
 

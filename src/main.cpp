@@ -1,3 +1,6 @@
+#include "../cpp_gui/cpp_style/src/style/style_deserializer.hpp"
+#include "../cpp_gui/cpp_style/src/style_nodes/style_node.hpp"
+#include "../cpp_gui/cpp_style/src/style_nodes/style_nodes_manager.hpp"
 #include "../cpp_gui/src/elements/abstracts/abstract_manager.hpp"
 #include "../cpp_gui/src/elements/ui/button.hpp"
 #include "../cpp_gui/src/elements/ui/container.hpp"
@@ -6,9 +9,6 @@
 #include "../cpp_gui/src/elements/ui/list.hpp"
 #include "../cpp_gui/src/elements/ui/ui_element.hpp"
 #include "../cpp_gui/src/elements/ui/ui_manager.hpp"
-#include "../cpp_gui/cpp_style/src/style/style_deserializer.hpp"
-#include "../cpp_gui/cpp_style/src/style_nodes/style_node.hpp"
-#include "../cpp_gui/cpp_style/src/style_nodes/style_nodes_manager.hpp"
 #include "app_utils/app_state.hpp"
 #include "pages/manager/page_manager.hpp"
 
@@ -23,7 +23,9 @@
 #include <SDL3_ttf/SDL_ttf.h>
 
 SDL_AppResult SDL_AppInit(void **appstate, int argc, char *argv[]) {
+#ifdef DEBUG
     SDL_SetLogPriorities(SDL_LOG_PRIORITY_DEBUG);
+#endif
     int windowLength = 500;
     int windowHeight = 500;
     SDL_Window *sdl_window = nullptr;
