@@ -1,7 +1,7 @@
 #ifndef PAGE_MANAGER_HPP
 #define PAGE_MANAGER_HPP
 
-#include "../../../cpp_gui/cpp_style/src/style_nodes/style_nodes_manager.hpp"
+#include "../../../cpp_gui/src/element_style/style_manager.hpp"
 #include "../../../cpp_gui/src/elements/ui/button.hpp"
 #include "../../../cpp_gui/src/elements/ui/container.hpp"
 #include "../../../cpp_gui/src/elements/ui/label.hpp"
@@ -22,10 +22,10 @@
 class PageManager {
     TTF_TextEngine *textEngine = nullptr;
 
-    gui::element::manager::UIManager *uiManager = nullptr;
+    gui::element::manager::UiManager *uiManager = nullptr;
     gui::element::UiElement *rootElement = nullptr;
     gui::element::UiElement *currentPageElement = nullptr;
-    style::elementStyle::manager::StyleNodesManager *styleManager = nullptr;
+    gui::elementStyle::manager::StyleManager *styleManager = nullptr;
     Page *currentPage = nullptr;
     Page *askedNewPage = nullptr;
 

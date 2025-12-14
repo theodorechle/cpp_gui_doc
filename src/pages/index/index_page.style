@@ -5,6 +5,6 @@
 
     .page {
         border-bottom: 1px;
+        text-color: #ff0000;
     }
 }
-

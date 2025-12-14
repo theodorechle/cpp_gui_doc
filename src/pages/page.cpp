@@ -1,6 +1,6 @@
 #include "page.hpp"
 
-Page::Page(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *page)> changePage,
+Page::Page(gui::elementStyle::manager::StyleManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *page)> changePage,
            const std::string &styleFile, const std::string &pageName, const std::string &middlePath)
     : styleManager{styleManager}, textEngine{textEngine}, styleFile{styleFile}, pageName{pageName}, changePage{changePage}, middlePath{middlePath} {}
 

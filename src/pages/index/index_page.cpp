@@ -1,7 +1,7 @@
 #include "index_page.hpp"
 #include "../../../cpp_gui/src/elements/ui/input.hpp"
 
-IndexPage::IndexPage(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine,
+IndexPage::IndexPage(gui::elementStyle::manager::StyleManager *styleManager, TTF_TextEngine *textEngine,
                      std::function<void(Page *)> changePage)
     : Page(styleManager, textEngine, changePage, "index", "Index") {
     pages = {new Introduction(styleManager, textEngine, changePage), new ElementsPage(styleManager, textEngine, changePage),

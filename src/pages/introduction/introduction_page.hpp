@@ -5,7 +5,7 @@
 
 class Introduction : public Page {
 public:
-    Introduction(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage);
+    Introduction(gui::elementStyle::manager::StyleManager *styleManager, TTF_TextEngine *textEngine, std::function<void(Page *)> changePage);
 
     void createPage() override;
 };

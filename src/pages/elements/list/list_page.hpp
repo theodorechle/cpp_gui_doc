@@ -11,7 +11,7 @@ class ListPage : public Page {
     std::list<Page *> pages;
 
 public:
-    ListPage(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine,
+    ListPage(gui::elementStyle::manager::StyleManager *styleManager, TTF_TextEngine *textEngine,
                  std::function<void(Page *)> changePage);
 
     void createPage() override;

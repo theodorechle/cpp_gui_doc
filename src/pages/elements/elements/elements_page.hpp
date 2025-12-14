@@ -12,7 +12,7 @@ class ElementsPage : public Page {
     std::list<Page *> pages;
 
 public:
-    ElementsPage(style::elementStyle::manager::StyleNodesManager *styleManager, TTF_TextEngine *textEngine,
+    ElementsPage(gui::elementStyle::manager::StyleManager *styleManager, TTF_TextEngine *textEngine,
                  std::function<void(Page *)> changePage);
 
     void createPage() override;
