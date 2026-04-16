@@ -48,7 +48,7 @@ void ElementsPage::createPage() {
     gui::element::UiElement *button;
 
     for (Page *page : pages) {
-        button = new gui::element::Button([this, page]() { changePageFocused(page); }, styleManager, &elementButtonClasses, "");
+        button = new gui::element::Button([this, page](const gui::element::event::Event *) { changePageFocused(page); }, styleManager, &elementButtonClasses, "");
         button->addChild(new gui::element::Label(page->name(), styleManager, nullptr, "", textEngine));
         rootElement->addChild(button);
     }

@@ -38,7 +38,9 @@ void PageManager::createPageStructure() {
 
     std::vector<std::string> pagesClasses = std::vector<std::string>{"back-button"};
     gui::element::UiElement *button = new gui::element::Button(
-        [this]() { askChangingPage(new IndexPage(styleManager, textEngine, std::bind(&PageManager::askChangingPage, this, std::placeholders::_1))); },
+        [this](const gui::element::event::Event *) {
+            askChangingPage(new IndexPage(styleManager, textEngine, std::bind(&PageManager::askChangingPage, this, std::placeholders::_1)));
+        },
         styleManager, &pagesClasses, "");
     headerList->addChild(button);
     button->addChild(new gui::element::Label("Back to index", styleManager, nullptr, "", textEngine));
@@ -60,7 +62,7 @@ void PageManager::askChangingPage(Page *newPage) {
 void PageManager::changePage(Page *newPage) {
     currentPageElement->removeChilds();
     if (currentPage != nullptr) currentPage->unsetFocus();
-    // FIXME: when changing page, it said "Can't create a texture for an ui_render_node" and after it is able to draw it
+    // FIXME: when changing page, it says "Can't create a texture for an ui_render_node" and after it is able to draw it
     // it seems like it tries to draw it before size is computed, and recompute and displays it after
 
     currentPage = newPage;

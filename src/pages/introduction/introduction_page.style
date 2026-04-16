@@ -29,4 +29,5 @@
 #myList>* label {
     text-color: #00ff00;
 }
-// FIXME: it misses one background height pixel on "back to index" button when not in index page
+
+// FIXME: it lacks one background height pixel on "back to index" button (when hovered) when not in index page
