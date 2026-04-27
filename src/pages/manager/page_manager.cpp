@@ -28,28 +28,27 @@ void PageManager::render() const { uiManager->render(); }
 
 void PageManager::createPageStructure() {
     styleManager->addDefaultFontPath("src/pages/fonts");
-    styleManager->addStyleFile("src/pages/page-structure.style");
 
-    rootElement = new gui::element::List(styleManager, nullptr, "root-page");
+    rootElement = new gui::element::List(styleManager, {}, "root-page");
     uiManager->setSubRootElement(rootElement);
 
-    gui::element::UiElement *headerList = new gui::element::List(styleManager, nullptr, "header-list");
+    gui::element::UiElement *headerList = new gui::element::List(styleManager, {}, "header-list");
     rootElement->addChild(headerList);
 
-    std::vector<std::string> pagesClasses = std::vector<std::string>{"back-button"};
     gui::element::UiElement *button = new gui::element::Button(
         [this](const gui::element::event::Event *) {
             askChangingPage(new IndexPage(styleManager, textEngine, std::bind(&PageManager::askChangingPage, this, std::placeholders::_1)));
         },
-        styleManager, &pagesClasses, "");
+        styleManager, {"back-button"}, "");
     headerList->addChild(button);
-    button->addChild(new gui::element::Label("Back to index", styleManager, nullptr, "", textEngine));
+    button->addChild(new gui::element::Label("Back to index", styleManager, {}, "", textEngine));
 
-    pageNameLabel = new gui::element::Label("", styleManager, nullptr, "page-name", textEngine);
+    pageNameLabel = new gui::element::Label("", styleManager, {}, "page-name", textEngine);
     headerList->addChild(pageNameLabel);
 
-    currentPageElement = new gui::element::Container(styleManager, nullptr, "page-content");
+    currentPageElement = new gui::element::Container(styleManager, {}, "page-content");
     rootElement->addChild(currentPageElement);
+    styleManager->addStyleFile("src/pages/page-structure.style");
 }
 
 void PageManager::askChangingPage(Page *newPage) {

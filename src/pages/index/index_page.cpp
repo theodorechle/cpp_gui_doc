@@ -8,17 +8,16 @@ IndexPage::IndexPage(gui::elementStyle::manager::StyleManager *styleManager, TTF
 }
 
 void IndexPage::createPage() {
-    gui::element::UiElement *pagesList = new gui::element::List(styleManager, nullptr, "pages-list");
+    gui::element::UiElement *pagesList = new gui::element::List(styleManager, {}, "pages-list");
     rootElement = pagesList;
-
-    std::vector<std::string> pagesClasses = std::vector<std::string>{"page"};
 
     gui::element::UiElement *button;
 
     for (Page *page : pages) {
         button =
-            new gui::element::Button([this, page](const gui::element::event::Event *) { changePageFocused(page); }, styleManager, &pagesClasses, "");
-        button->addChild(new gui::element::Label(page->name(), styleManager, nullptr, "", textEngine));
+            new gui::element::Button([this, page](const gui::element::event::Event *) { changePageFocused(page); }, styleManager, {"page"}, "");
+        button->addChild(new gui::element::Label(page->name(), styleManager, {}, "", textEngine));
         rootElement->addChild(button);
     }
+    rootElement->addChild(new gui::element::Input("", "", styleManager));
 }

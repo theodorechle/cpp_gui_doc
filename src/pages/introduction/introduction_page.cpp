@@ -9,7 +9,7 @@ Introduction::Introduction(gui::elementStyle::manager::StyleManager *styleManage
     : Page(styleManager, textEngine, changePage, "introduction", "Introduction (What is cpp gui?)") {}
 
 void Introduction::createPage() {
-    gui::element::UiElement *pagesList = new gui::element::List(styleManager, nullptr, "pages-list");
+    gui::element::UiElement *pagesList = new gui::element::List(styleManager, {}, "pages-list");
     rootElement = pagesList;
     // very strange behavior
 
@@ -29,8 +29,8 @@ void Introduction::createPage() {
     //     "posuere varius. Phasellus l", // exceeding 2473 chars causes text not to be displayed
     //     styleManager, nullptr, "", textEngine));
     
-    pagesList->addChild(new gui::element::List(styleManager, nullptr, "myList"));
+    pagesList->addChild(new gui::element::List(styleManager, {}, "myList"));
     pagesList->child()->addChild(new gui::element::Button(nullptr, styleManager));
     pagesList->child()->child()->addChild(new gui::element::Button(nullptr, styleManager));
-    pagesList->child()->child()->child()->addChild(new gui::element::Label("myLabel", styleManager, nullptr, "", textEngine));
+    pagesList->child()->child()->child()->addChild(new gui::element::Label("myLabel", styleManager, {}, "", textEngine));
 }
